@@ -1,0 +1,123 @@
+[0m[1mrandom_id.imported: Refreshing state... [id=p-9hUg][0m
+[0m[1mrandom_pet.server: Refreshing state... [id=open-reptile][0m
+[0m[1mmodule.child[0].random_integer.n: Refreshing state... [id=53][0m
+[0m[1mmodule.new_name.random_integer.n: Refreshing state... [id=36][0m
+[0m[1mrandom_pet.renamed: Refreshing state... [id=skunk][0m
+[0m[1mrandom_password.db: Refreshing state... [id=none][0m
+[0m[1mterraform_data.settings: Refreshing state... [id=83bc6265-ef58-b257-0e3e-ca94da9f165a][0m
+[0m[1mdata.local_file.cfg: Reading...[0m[0m
+[0m[1mlocal_file.notes["a"]: Refreshing state... [id=be76331b95dfc399cd776d2fc68021e0db03cc4f][0m
+[0m[1mlocal_sensitive_file.secret: Refreshing state... [id=ea0df7e17694cf82a3e8dd2bc3b6a7222ead8c5e][0m
+[0m[1mdata.local_file.cfg: Read complete after 0s [id=09ec1e02ff75818a1a4df2c723e6a03588c86477][0m
+[0m[1mnull_resource.cbd: Refreshing state... [id=5114692227584915097][0m
+[0m[1mmodule.child[0].null_resource.worker[0]: Refreshing state... [id=751504241017021201][0m
+[0m[1mmodule.new_name.null_resource.worker[0]: Refreshing state... [id=8190685683839942929][0m
+[0m[1mmodule.child[0].null_resource.worker[1]: Refreshing state... [id=7768790734389368897][0m
+[0m[1mnull_resource.hook: Refreshing state... [id=6688740702544849024][0m
+[0m[1mmodule.new_name.null_resource.worker[1]: Refreshing state... [id=6174136101949973153][0m
+[0m[1mtime_static.rotated: Refreshing state... [id=2026-10-21T10:38:05Z][0m
+[0m[1mtime_static.created: Refreshing state... [id=2026-10-21T10:34:01Z][0m
+[0m[1mlocal_file.stamp: Refreshing state... [id=7dbf6981d6be0d2131df5290e7817e6fd9c07b5a][0m
+[0m[1mlocal_file.config: Refreshing state... [id=09ec1e02ff75818a1a4df2c723e6a03588c86477][0m
+[0m[1mdata.local_file.stamp_read: Reading...[0m[0m
+[0m[1mdata.local_file.stamp_read: Read complete after 0s [id=7dbf6981d6be0d2131df5290e7817e6fd9c07b5a][0m
+
+OpenTofu used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [33m~[0m update in-place (current -> planned)[0m
+[31m-[0m/[32m+[0m destroy and then create replacement[0m
+ [36m<=[0m read (data resources)[0m
+
+OpenTofu will perform the following actions:
+
+[1m  # data.local_file.cfg[0m will be read during apply
+  # (config will be reloaded to verify a check block)
+[0m [36m<=[0m[0m data "local_file" "cfg" {
+      [32m+[0m[0m content              = jsonencode(
+            {
+              [32m+[0m[0m created = "2026-10-21T10:34:01Z"
+              [32m+[0m[0m env     = "production"
+              [32m+[0m[0m server  = "open-reptile"
+              [32m+[0m[0m tags    = {
+                  [32m+[0m[0m team = "platform"
+                  [32m+[0m[0m tier = "api"
+                }
+            }
+        )
+      [32m+[0m[0m content_base64       = "eyJjcmVhdGVkIjoiMjAyNi0xMC0yMVQxMDozNDowMVoiLCJlbnYiOiJwcm9kdWN0aW9uIiwic2VydmVyIjoib3Blbi1yZXB0aWxlIiwidGFncyI6eyJ0ZWFtIjoicGxhdGZvcm0iLCJ0aWVyIjoiYXBpIn19"
+      [32m+[0m[0m content_base64sha256 = "HiU6diiMmSGi/6h3wlNi9s2ddBl990x35bpvjT7nI4k="
+      [32m+[0m[0m content_base64sha512 = "60vDVt2eIoWB7r3HIFGnRyNIYIJqvmX+t4VARdZP5jOkp3y3gObdng5MPDYc/VrvtSho/1UhQjA6+YAHlxPcHw=="
+      [32m+[0m[0m content_md5          = "b196f006841637d229aa00295dd248f7"
+      [32m+[0m[0m content_sha1         = "09ec1e02ff75818a1a4df2c723e6a03588c86477"
+      [32m+[0m[0m content_sha256       = "1e253a76288c9921a2ffa877c25362f6cd9d74197df74c77e5ba6f8d3ee72389"
+      [32m+[0m[0m content_sha512       = "eb4bc356dd9e228581eebdc72051a747234860826abe65feb7854045d64fe633a4a77cb780e6dd9e0e4c3c361cfd5aefb52868ff552142303af980079713dc1f"
+      [32m+[0m[0m filename             = "./out/config.json"
+      [32m+[0m[0m id                   = "09ec1e02ff75818a1a4df2c723e6a03588c86477"
+    }
+
+[1m  # local_file.config[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "local_file" "config" {
+      [33m~[0m[0m content              = jsonencode(
+          [33m~[0m[0m {
+              [33m~[0m[0m env     = "production" [33m->[0m[0m "staging"
+                tags    = {
+                    team = "platform"
+                    tier = "api"
+                }
+                [90m# (2 unchanged attributes hidden)[0m[0m
+            } [31m# forces replacement[0m[0m
+        )
+      [33m~[0m[0m content_base64sha256 = "HiU6diiMmSGi/6h3wlNi9s2ddBl990x35bpvjT7nI4k=" -> (known after apply)
+      [33m~[0m[0m content_base64sha512 = "60vDVt2eIoWB7r3HIFGnRyNIYIJqvmX+t4VARdZP5jOkp3y3gObdng5MPDYc/VrvtSho/1UhQjA6+YAHlxPcHw==" -> (known after apply)
+      [33m~[0m[0m content_md5          = "b196f006841637d229aa00295dd248f7" -> (known after apply)
+      [33m~[0m[0m content_sha1         = "09ec1e02ff75818a1a4df2c723e6a03588c86477" -> (known after apply)
+      [33m~[0m[0m content_sha256       = "1e253a76288c9921a2ffa877c25362f6cd9d74197df74c77e5ba6f8d3ee72389" -> (known after apply)
+      [33m~[0m[0m content_sha512       = "eb4bc356dd9e228581eebdc72051a747234860826abe65feb7854045d64fe633a4a77cb780e6dd9e0e4c3c361cfd5aefb52868ff552142303af980079713dc1f" -> (known after apply)
+      [33m~[0m[0m id                   = "09ec1e02ff75818a1a4df2c723e6a03588c86477" -> (known after apply)
+        [90m# (3 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # local_sensitive_file.secret[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "local_sensitive_file" "secret" {
+      [33m~[0m[0m content              = (sensitive value) [31m# forces replacement[0m[0m
+      [33m~[0m[0m content_base64sha256 = "/XrqunDNGFcYfdPq8uI5pq6UTlziOfgQuRHbhdZ4KtE=" -> (known after apply)
+      [33m~[0m[0m content_base64sha512 = "Rq88g+RG7BbcF3eKinDhM3biNpCwyn0nFCQLpmEoKXbbuWWgDkf2XSl9ONimcBjJfqlL7h9E/1iqYnM6+pGXDg==" -> (known after apply)
+      [33m~[0m[0m content_md5          = "3136d79b819ae7bf336427f42abd7a0b" -> (known after apply)
+      [33m~[0m[0m content_sha1         = "ea0df7e17694cf82a3e8dd2bc3b6a7222ead8c5e" -> (known after apply)
+      [33m~[0m[0m content_sha256       = "fd7aeaba70cd1857187dd3eaf2e239a6ae944e5ce239f810b911db85d6782ad1" -> (known after apply)
+      [33m~[0m[0m content_sha512       = "46af3c83e446ec16dc17778a8a70e13376e23690b0ca7d2714240ba661282976dbb965a00e47f65d297d38d8a67018c97ea94bee1f44ff58aa62733afa91970e" -> (known after apply)
+      [33m~[0m[0m id                   = "ea0df7e17694cf82a3e8dd2bc3b6a7222ead8c5e" -> (known after apply)
+        [90m# (3 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # random_password.db[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "random_password" "db" {
+      [33m~[0m[0m bcrypt_hash = (sensitive value)
+      [33m~[0m[0m id          = "none" -> (known after apply)
+      [33m~[0m[0m length      = 16 [33m->[0m[0m 20 [31m# forces replacement[0m[0m
+      [33m~[0m[0m result      = (sensitive value)
+        [90m# (9 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # terraform_data.settings[0m will be updated in-place
+[0m  [33m~[0m[0m resource "terraform_data" "settings" {
+        id     = "83bc6265-ef58-b257-0e3e-ca94da9f165a"
+      [33m~[0m[0m input  = {
+          [33m~[0m[0m env      = "production" [33m->[0m[0m "staging"
+            [90m# (2 unchanged attributes hidden)[0m[0m
+        }
+      [33m~[0m[0m output = {
+          [31m-[0m[0m env      = "production"
+          [31m-[0m[0m features = [
+              [31m-[0m[0m "a",
+              [31m-[0m[0m "b",
+              [31m-[0m[0m "c",
+            ]
+          [31m-[0m[0m replicas = 3
+        } -> (known after apply)
+    }
+
+[1mPlan:[0m 3 to add, 1 to change, 3 to destroy.
+[0m
+Changes to Outputs:
+  [33m~[0m[0m password    = (sensitive value)

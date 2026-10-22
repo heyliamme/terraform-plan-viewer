@@ -1,0 +1,61 @@
+{
+  "format_version": "0.1",
+  "terraform_version": "0.12.31",
+  "variables": { "region": { "value": "us-east-1" } },
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        { "address": "aws_instance.web", "mode": "managed", "type": "aws_instance", "name": "web", "provider_name": "aws", "schema_version": 1, "values": { "ami": "ami-0abc", "instance_type": "t3.small" } }
+      ]
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "aws_instance.web",
+      "mode": "managed",
+      "type": "aws_instance",
+      "name": "web",
+      "provider_name": "aws",
+      "change": {
+        "actions": ["update"],
+        "before": { "id": "i-0123", "ami": "ami-0abc", "instance_type": "t3.micro", "public_ip": "54.1.2.3", "tags": { "Name": "web" } },
+        "after": { "id": "i-0123", "ami": "ami-0abc", "instance_type": "t3.small", "tags": { "Name": "web" } },
+        "after_unknown": { "public_ip": true }
+      }
+    },
+    {
+      "address": "aws_eip.web",
+      "mode": "managed",
+      "type": "aws_eip",
+      "name": "web",
+      "provider_name": "aws",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": { "vpc": true, "tags": null },
+        "after_unknown": { "id": true, "public_ip": true, "allocation_id": true }
+      }
+    },
+    {
+      "address": "aws_instance.legacy",
+      "mode": "managed",
+      "type": "aws_instance",
+      "name": "legacy",
+      "provider_name": "aws",
+      "change": {
+        "actions": ["delete"],
+        "before": { "id": "i-0999", "ami": "ami-0old", "instance_type": "t2.micro" },
+        "after": null,
+        "after_unknown": {}
+      }
+    }
+  ],
+  "output_changes": {
+    "address": { "actions": ["create"], "before": null, "after": null, "after_unknown": true }
+  },
+  "prior_state": { "format_version": "0.1", "terraform_version": "0.12.31", "values": { "root_module": { "resources": [] } } },
+  "configuration": {
+    "provider_config": { "aws": { "name": "aws", "expressions": { "region": { "references": ["var.region"] } } } },
+    "root_module": { "resources": [] }
+  }
+}

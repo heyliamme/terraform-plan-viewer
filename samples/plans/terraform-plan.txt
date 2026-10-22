@@ -1,0 +1,238 @@
+aws_instance.web: Refreshing state... [id=i-0a1b2c3d4e5f67890]
+data.aws_ami.ubuntu: Reading...
+data.aws_ami.ubuntu: Read complete after 1s [id=ami-0c55b159cbfafe1f0]
+
+Note: Objects have changed outside of Terraform
+
+Terraform detected the following changes made outside of Terraform since the
+last "terraform apply" which may have affected this plan:
+
+  # aws_security_group.web has changed
+  ~ resource "aws_security_group" "web" {
+        id          = "sg-0123456789abcdef0"
+        name        = "web"
+      ~ tags        = {
+          - "Owner" = "platform" -> null
+            # (1 unchanged element hidden)
+        }
+        # (5 unchanged attributes hidden)
+    }
+
+  # aws_instance.canary has been deleted
+  - resource "aws_instance" "canary" {
+      - ami           = "ami-0c55b159cbfafe1f0" -> null
+      - id            = "i-0canary0000000000" -> null
+      - instance_type = "t3.micro" -> null
+    }
+
+
+Unless you have made equivalent changes to your configuration, or ignored the
+relevant attributes using ignore_changes, the following plan may include
+actions to undo or respond to these changes.
+
+─────────────────────────────────────────────────────────────────────────────
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+  ~ update in-place
+  - destroy
+-/+ destroy and then create replacement
++/- create replacement and then destroy
+
+Terraform will perform the following actions:
+
+  # aws_instance.web must be replaced
+-/+ resource "aws_instance" "web" {
+      ~ ami                                  = "ami-0c55b159cbfafe1f0" -> "ami-0e8d228ad90af673b" # forces replacement
+      ~ arn                                  = "arn:aws:ec2:us-east-1:123456789012:instance/i-0a1b2c3d4e5f67890" -> (known after apply)
+      ~ id                                   = "i-0a1b2c3d4e5f67890" -> (known after apply)
+      ~ instance_type                        = "t3.micro" -> "t3.small"
+      ~ private_ip                           = "10.0.1.23" -> (known after apply)
+      ~ tags                                 = {
+          + "CostCenter"  = "cc-42"
+          ~ "Environment" = "staging" -> "production"
+            # (1 unchanged element hidden)
+        }
+      ~ user_data                            = <<-EOT
+            #!/bin/bash
+          - echo "hello from staging" > /etc/motd
+          + echo "hello from production" > /etc/motd
+            systemctl restart nginx
+        EOT
+        # (12 unchanged attributes hidden)
+
+      ~ root_block_device {
+          ~ volume_size           = 8 -> 20
+            # (6 unchanged attributes hidden)
+        }
+
+      + ebs_block_device {
+          + device_name           = "/dev/sdf"
+          + volume_size           = 100
+          + volume_type           = "gp3"
+        }
+
+        # (2 unchanged blocks hidden)
+    }
+
+  # aws_instance.web (deposed object 8e4f2a1c) will be destroyed
+  # (left over from a partially-failed replacement of this instance)
+  - resource "aws_instance" "web" {
+      - ami           = "ami-0a0a0a0a0a0a0a0a0" -> null
+      - id            = "i-0deadbeef00000000" -> null
+      - instance_type = "t3.micro" -> null
+    }
+
+  # aws_iam_role_policy.app will be updated in-place
+  ~ resource "aws_iam_role_policy" "app" {
+        id     = "app-role:app-policy"
+        name   = "app-policy"
+      ~ policy = jsonencode(
+          ~ {
+              ~ Statement = [
+                  ~ {
+                      ~ Action   = [
+                            "s3:GetObject",
+                          + "s3:PutObject",
+                        ]
+                        # (2 unchanged attributes hidden)
+                    },
+                ]
+                # (1 unchanged attribute hidden)
+            }
+        )
+        # (1 unchanged attribute hidden)
+    }
+
+  # aws_s3_bucket.logs will be imported
+  # (imported from "my-logs-bucket")
+    resource "aws_s3_bucket" "logs" {
+        bucket = "my-logs-bucket"
+        id     = "my-logs-bucket"
+        tags   = {}
+    }
+
+  # aws_s3_bucket.assets will be updated in-place
+  # (imported from "my-assets-bucket")
+  ~ resource "aws_s3_bucket" "assets" {
+        bucket = "my-assets-bucket"
+        id     = "my-assets-bucket"
+      ~ tags   = {
+          + "Team" = "web"
+        }
+    }
+
+  # module.db.aws_db_instance.main is tainted, so must be replaced
+-/+ resource "aws_db_instance" "main" {
+      ~ address  = "main.abc.us-east-1.rds.amazonaws.com" -> (known after apply)
+      ~ id       = "main" -> (known after apply)
+      ~ password = (sensitive value)
+        # (30 unchanged attributes hidden)
+    }
+
+  # module.db.aws_db_subnet_group.old will be destroyed
+  # (because aws_db_subnet_group.old is not in configuration)
+  - resource "aws_db_subnet_group" "old" {
+      - id         = "old" -> null
+      - name       = "old" -> null
+      - subnet_ids = [
+          - "subnet-aaa",
+          - "subnet-bbb",
+        ] -> null
+    }
+
+  # module.net.aws_subnet.private[1] will be destroyed
+  # (because index [1] is out of range for count)
+  - resource "aws_subnet" "private" {
+      - cidr_block = "10.0.2.0/24" -> null
+      - id         = "subnet-bbb" -> null
+    }
+
+  # aws_route53_record.app has moved to aws_route53_record.app_v2
+    resource "aws_route53_record" "app_v2" {
+        id   = "Z123_app.example.com_A"
+        name = "app.example.com"
+        # (5 unchanged attributes hidden)
+    }
+
+  # aws_security_group.web will be updated in-place
+  # (moved from aws_security_group.legacy)
+  ~ resource "aws_security_group" "web" {
+        id   = "sg-0123456789abcdef0"
+      ~ tags = {
+          + "Owner" = "platform"
+        }
+        # (6 unchanged attributes hidden)
+    }
+
+  # aws_lambda_function.worker will be replaced, as requested
++/- resource "aws_lambda_function" "worker" {
+      ~ arn           = "arn:aws:lambda:us-east-1:123456789012:function:worker" -> (known after apply)
+      ~ id            = "worker" -> (known after apply)
+      ~ last_modified = "2026-10-01T00:00:00.000+0000" -> (known after apply)
+      ~ environment {
+          ~ variables = {
+              ~ "LOG_LEVEL" = "info" -> "debug"
+            }
+        }
+        # (20 unchanged attributes hidden)
+    }
+
+  # data.aws_ami.latest will be read during apply
+  # (config refers to values not yet known)
+ <= data "aws_ami" "latest" {
+      + architecture = (known after apply)
+      + id           = (known after apply)
+      + most_recent  = true
+      + owners       = [
+          + "099720109477",
+        ]
+      + filter {
+          + name   = "name"
+          + values = [
+              + "ubuntu/images/hvm-ssd/*",
+            ]
+        }
+    }
+
+  # aws_instance.canary will be created
+  + resource "aws_instance" "canary" {
+      + ami           = "ami-0c55b159cbfafe1f0"
+      + id            = (known after apply)
+      + instance_type = "t3.micro"
+      + tags          = {
+          + "Name" = "canary"
+        }
+      + user_data     = <<-EOT
+            #!/bin/bash
+            echo canary
+        EOT
+    }
+
+Plan: 4 to add, 3 to change, 6 to destroy.
+
+Changes to Outputs:
+  + canary_ip   = (known after apply)
+  ~ db_password = (sensitive value)
+  - old_address = "main.abc.us-east-1.rds.amazonaws.com" -> null
+  ~ subnets     = [
+      - "subnet-bbb",
+        "subnet-aaa",
+    ]
+  ~ web_address = "10.0.1.23" -> (known after apply)
+╷
+│ Warning: Deprecated attribute
+│
+│   on main.tf line 42, in resource "aws_instance" "web":
+│   42:   vpc_security_group_ids = [aws_security_group.web.id]
+│
+│ The attribute "vpc" is deprecated. Refer to the provider documentation for details.
+╵
+
+─────────────────────────────────────────────────────────────────────────────
+
+Saved the plan to: tfplan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "tfplan"

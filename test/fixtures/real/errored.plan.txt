@@ -1,0 +1,285 @@
+null_resource.hook: Refreshing state... [id=6872094199069763647]
+null_resource.forgotten: Refreshing state... [id=3427969997504892573]
+null_resource.cbd: Refreshing state... [id=7726511184675787576]
+module.child[0].null_resource.worker[0]: Refreshing state... [id=751504241017021201]
+module.new_name.null_resource.worker[0]: Refreshing state... [id=8190685683839942929]
+module.new_name.null_resource.worker[1]: Refreshing state... [id=6174136101949973153]
+module.child[0].null_resource.worker[1]: Refreshing state... [id=7768790734389368897]
+module.child[1].null_resource.worker[1]: Refreshing state... [id=5269141876814871689]
+module.child[1].null_resource.worker[0]: Refreshing state... [id=7616892481342588323]
+local_file.imported: Preparing import... [id=./out/imported.txt]
+local_file.notes["b"]: Refreshing state... [id=a295e0bdde1938d1fbfd343e5a3e569e868e1465]
+data.local_file.cfg: Reading...
+local_file.notes["a"]: Refreshing state... [id=be76331b95dfc399cd776d2fc68021e0db03cc4f]
+data.local_file.cfg: Read complete after 0s [id=b7ce96924440591b57f51a503aa48c4faa2466ca]
+time_static.created: Refreshing state... [id=2026-10-21T10:34:01Z]
+terraform_data.settings: Refreshing state... [id=83bc6265-ef58-b257-0e3e-ca94da9f165a]
+random_pet.renamed: Refreshing state... [id=skunk]
+module.child[1].random_integer.n: Refreshing state... [id=60]
+module.new_name.random_integer.n: Refreshing state... [id=36]
+random_pet.server: Refreshing state... [id=open-reptile]
+random_password.db: Refreshing state... [id=none]
+module.child[0].random_integer.n: Refreshing state... [id=53]
+local_file.config: Refreshing state... [id=b7ce96924440591b57f51a503aa48c4faa2466ca]
+local_sensitive_file.secret: Refreshing state... [id=ea0df7e17694cf82a3e8dd2bc3b6a7222ead8c5e]
+
+OpenTofu used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+  ~ update in-place (current -> planned)
+  - destroy
+-/+ destroy and then create replacement
++/- create replacement and then destroy
+ <= read (data resources)
+  . forget
+
+OpenTofu planned the following actions, but then encountered a problem:
+
+  # data.local_file.cfg will be read during apply
+  # (config will be reloaded to verify a check block)
+ <= data "local_file" "cfg" {
+      + content              = jsonencode(
+            {
+              + created = "2026-10-21T10:34:01Z"
+              + env     = "staging"
+              + server  = "open-reptile"
+              + tags    = {
+                  + team = "platform"
+                  + tier = "web"
+                }
+            }
+        )
+      + content_base64       = "eyJjcmVhdGVkIjoiMjAyNi0xMC0yMVQxMDozNDowMVoiLCJlbnYiOiJzdGFnaW5nIiwic2VydmVyIjoib3Blbi1yZXB0aWxlIiwidGFncyI6eyJ0ZWFtIjoicGxhdGZvcm0iLCJ0aWVyIjoid2ViIn19"
+      + content_base64sha256 = "wyOV9jyd7q1VCMrYecFEfaHk5SqEvKYXs2nAHCqqyic="
+      + content_base64sha512 = "pHwm8F3Ndmh9y6SiPREXF9Tnx7qVMdinHdMfwpb7Tz1m3spL/NC2f9GqhbfWfhXtLtlMsuN3nfoM9YjCaS7pTA=="
+      + content_md5          = "595f91b8125581571fc635027b8a7130"
+      + content_sha1         = "b7ce96924440591b57f51a503aa48c4faa2466ca"
+      + content_sha256       = "c32395f63c9deead5508cad879c1447da1e4e52a84bca617b369c01c2aaaca27"
+      + content_sha512       = "a47c26f05dcd76687dcba4a23d111717d4e7c7ba9531d8a71dd31fc296fb4f3d66deca4bfcd0b67fd1aa85b7d67e15ed2ed94cb2e3779dfa0cf588c2692ee94c"
+      + filename             = "./out/config.json"
+      + id                   = "b7ce96924440591b57f51a503aa48c4faa2466ca"
+    }
+
+  # data.local_file.stamp_read will be read during apply
+  # (depends on a resource or a module with changes pending)
+ <= data "local_file" "stamp_read" {
+      + content              = (known after apply)
+      + content_base64       = (known after apply)
+      + content_base64sha256 = (known after apply)
+      + content_base64sha512 = (known after apply)
+      + content_md5          = (known after apply)
+      + content_sha1         = (known after apply)
+      + content_sha256       = (known after apply)
+      + content_sha512       = (known after apply)
+      + filename             = "./out/stamp.txt"
+      + id                   = (known after apply)
+    }
+
+  # local_file.config must be replaced
+-/+ resource "local_file" "config" {
+      ~ content              = jsonencode(
+          ~ {
+              ~ env     = "staging" -> "production"
+              ~ tags    = {
+                    team = "platform"
+                  ~ tier = "web" -> "api"
+                }
+                # (2 unchanged attributes hidden)
+            } # forces replacement
+        )
+      ~ content_base64sha256 = "wyOV9jyd7q1VCMrYecFEfaHk5SqEvKYXs2nAHCqqyic=" -> (known after apply)
+      ~ content_base64sha512 = "pHwm8F3Ndmh9y6SiPREXF9Tnx7qVMdinHdMfwpb7Tz1m3spL/NC2f9GqhbfWfhXtLtlMsuN3nfoM9YjCaS7pTA==" -> (known after apply)
+      ~ content_md5          = "595f91b8125581571fc635027b8a7130" -> (known after apply)
+      ~ content_sha1         = "b7ce96924440591b57f51a503aa48c4faa2466ca" -> (known after apply)
+      ~ content_sha256       = "c32395f63c9deead5508cad879c1447da1e4e52a84bca617b369c01c2aaaca27" -> (known after apply)
+      ~ content_sha512       = "a47c26f05dcd76687dcba4a23d111717d4e7c7ba9531d8a71dd31fc296fb4f3d66deca4bfcd0b67fd1aa85b7d67e15ed2ed94cb2e3779dfa0cf588c2692ee94c" -> (known after apply)
+      ~ id                   = "b7ce96924440591b57f51a503aa48c4faa2466ca" -> (known after apply)
+        # (3 unchanged attributes hidden)
+    }
+
+  # local_file.notes["a"] will be created
+  + resource "local_file" "notes" {
+      + content              = "alpha"
+      + content_base64sha256 = (known after apply)
+      + content_base64sha512 = (known after apply)
+      + content_md5          = (known after apply)
+      + content_sha1         = (known after apply)
+      + content_sha256       = (known after apply)
+      + content_sha512       = (known after apply)
+      + directory_permission = "0777"
+      + file_permission      = "0777"
+      + filename             = "./out/a.txt"
+      + id                   = (known after apply)
+    }
+
+  # local_file.notes["b"] will be destroyed
+  # (because key ["b"] is not in for_each map)
+  - resource "local_file" "notes" {
+      - content              = "beta" -> null
+      - content_base64sha256 = "9E5k5185SOn3P436lHIcTOjLtPJlxHkMcCstQc+/J1M=" -> null
+      - content_base64sha512 = "Vgxy3nLApSItkoI39rEFKW2gWYU1NLjQH8I1J8HV2KS4PVsd0/IhBkK9BxzFAFmNTr0pOXPZ9K64rnM2rzqVnQ==" -> null
+      - content_md5          = "987bcab01b929eb2c07877b224215c92" -> null
+      - content_sha1         = "a295e0bdde1938d1fbfd343e5a3e569e868e1465" -> null
+      - content_sha256       = "f44e64e75f3948e9f73f8dfa94721c4ce8cbb4f265c4790c702b2d41cfbf2753" -> null
+      - content_sha512       = "560c72de72c0a5222d928237f6b105296da059853534b8d01fc23527c1d5d8a4b83d5b1dd3f2210642bd071cc500598d4ebd293973d9f4aeb8ae7336af3a959d" -> null
+      - directory_permission = "0777" -> null
+      - file_permission      = "0777" -> null
+      - filename             = "./out/b.txt" -> null
+      - id                   = "a295e0bdde1938d1fbfd343e5a3e569e868e1465" -> null
+    }
+
+  # local_file.stamp will be created
+  + resource "local_file" "stamp" {
+      + content              = (known after apply)
+      + content_base64sha256 = (known after apply)
+      + content_base64sha512 = (known after apply)
+      + content_md5          = (known after apply)
+      + content_sha1         = (known after apply)
+      + content_sha256       = (known after apply)
+      + content_sha512       = (known after apply)
+      + directory_permission = "0777"
+      + file_permission      = "0777"
+      + filename             = "./out/stamp.txt"
+      + id                   = (known after apply)
+    }
+
+  # null_resource.cbd must be replaced
++/- resource "null_resource" "cbd" {
+      ~ id       = "7726511184675787576" -> (known after apply)
+      ~ triggers = { # forces replacement
+          ~ "version" = "1" -> "2"
+        }
+    }
+
+  # null_resource.forgotten will be removed from the OpenTofu state but will not be destroyed
+  . resource "null_resource" "forgotten" {
+    id       = "3427969997504892573"
+    triggers = {
+        "keep" = "me"
+    }
+}
+
+  # null_resource.hook must be replaced
+-/+ resource "null_resource" "hook" {
+      ~ id       = "6872094199069763647" -> (known after apply)
+      ~ triggers = { # forces replacement
+          ~ "version" = "1" -> "2"
+        }
+    }
+
+  # random_pet.legacy has moved to random_pet.renamed
+    resource "random_pet" "renamed" {
+        id        = "skunk"
+        # (2 unchanged attributes hidden)
+    }
+
+  # terraform_data.settings will be updated in-place
+  ~ resource "terraform_data" "settings" {
+        id     = "83bc6265-ef58-b257-0e3e-ca94da9f165a"
+      ~ input  = {
+          ~ env      = "staging" -> "production"
+          ~ features = [
+                # (1 unchanged element hidden)
+                "b",
+              + "c",
+            ]
+          ~ replicas = 2 -> 3
+        }
+      ~ output = {
+          - env      = "staging"
+          - features = [
+              - "a",
+              - "b",
+            ]
+          - replicas = 2
+        } -> (known after apply)
+    }
+
+  # time_static.rotated will be created
+  + resource "time_static" "rotated" {
+      + day     = (known after apply)
+      + hour    = (known after apply)
+      + id      = (known after apply)
+      + minute  = (known after apply)
+      + month   = (known after apply)
+      + rfc3339 = (known after apply)
+      + second  = (known after apply)
+      + unix    = (known after apply)
+      + year    = (known after apply)
+    }
+
+  # module.child[1].null_resource.worker[0] will be destroyed
+  # (because module.child[1] is not in configuration)
+  - resource "null_resource" "worker" {
+      - id       = "7616892481342588323" -> null
+      - triggers = {
+          - "idx" = "1"
+        } -> null
+    }
+
+  # module.child[1].null_resource.worker[1] will be destroyed
+  # (because module.child[1] is not in configuration)
+  - resource "null_resource" "worker" {
+      - id       = "5269141876814871689" -> null
+      - triggers = {
+          - "idx" = "1"
+        } -> null
+    }
+
+  # module.child[1].random_integer.n will be destroyed
+  # (because module.child[1] is not in configuration)
+  - resource "random_integer" "n" {
+      - id     = "60" -> null
+      - max    = 100 -> null
+      - min    = 1 -> null
+      - result = 60 -> null
+    }
+
+  # module.old_name.null_resource.worker[0] has moved to module.new_name.null_resource.worker[0]
+    resource "null_resource" "worker" {
+        id       = "8190685683839942929"
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.old_name.null_resource.worker[1] has moved to module.new_name.null_resource.worker[1]
+    resource "null_resource" "worker" {
+        id       = "6174136101949973153"
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.old_name.random_integer.n has moved to module.new_name.random_integer.n
+    resource "random_integer" "n" {
+        id     = "36"
+        # (3 unchanged attributes hidden)
+    }
+
+Plan: 6 to add, 1 to change, 7 to destroy, 1 to forget.
+
+Changes to Outputs:
+  + replicas    = 3
+  + rotated_at  = (known after apply)
+  - to_remove   = "bye" -> null
+
+Warning: Resource will be removed from the state
+
+After this plan is applied, the resource null_resource.forgotten will not be
+managed anymore by OpenTofu.
+
+In case you want to manage the resource again, you will have to import it.
+
+Warning: Check block assertion failed
+
+  on main.tf line 111, in check "env_is_staging":
+ 111:     condition     = var.env == "staging"
+    ├────────────────
+    │ var.env is "production"
+    ├────────────────
+    │ Diff: 
+    │     "production" -> "staging"
+
+env is not staging
+
+Error: Resource Import Not Implemented
+
+This resource does not support import. Please contact the provider developer
+for additional information.

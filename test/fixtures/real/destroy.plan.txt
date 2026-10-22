@@ -1,0 +1,262 @@
+random_pet.server: Refreshing state... [id=open-reptile]
+random_id.imported: Refreshing state... [id=p-9hUg]
+module.new_name.random_integer.n: Refreshing state... [id=36]
+random_pet.renamed: Refreshing state... [id=skunk]
+module.child[0].random_integer.n: Refreshing state... [id=53]
+random_password.db: Refreshing state... [id=none]
+terraform_data.settings: Refreshing state... [id=83bc6265-ef58-b257-0e3e-ca94da9f165a]
+time_static.created: Refreshing state... [id=2026-10-21T10:34:01Z]
+time_static.rotated: Refreshing state... [id=2026-10-21T10:38:05Z]
+data.local_file.cfg: Reading...
+local_file.config: Refreshing state... [id=09ec1e02ff75818a1a4df2c723e6a03588c86477]
+local_sensitive_file.secret: Refreshing state... [id=ea0df7e17694cf82a3e8dd2bc3b6a7222ead8c5e]
+local_file.stamp: Refreshing state... [id=7dbf6981d6be0d2131df5290e7817e6fd9c07b5a]
+local_file.notes["a"]: Refreshing state... [id=be76331b95dfc399cd776d2fc68021e0db03cc4f]
+data.local_file.cfg: Read complete after 0s [id=09ec1e02ff75818a1a4df2c723e6a03588c86477]
+data.local_file.stamp_read: Reading...
+data.local_file.stamp_read: Read complete after 0s [id=7dbf6981d6be0d2131df5290e7817e6fd9c07b5a]
+null_resource.hook: Refreshing state... [id=6688740702544849024]
+null_resource.cbd: Refreshing state... [id=5114692227584915097]
+module.child[0].null_resource.worker[1]: Refreshing state... [id=7768790734389368897]
+module.new_name.null_resource.worker[0]: Refreshing state... [id=8190685683839942929]
+module.child[0].null_resource.worker[0]: Refreshing state... [id=751504241017021201]
+module.new_name.null_resource.worker[1]: Refreshing state... [id=6174136101949973153]
+
+OpenTofu used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  - destroy
+
+OpenTofu will perform the following actions:
+
+  # local_file.config will be destroyed
+  - resource "local_file" "config" {
+      - content              = jsonencode(
+            {
+              - created = "2026-10-21T10:34:01Z"
+              - env     = "production"
+              - server  = "open-reptile"
+              - tags    = {
+                  - team = "platform"
+                  - tier = "api"
+                }
+            }
+        ) -> null
+      - content_base64sha256 = "HiU6diiMmSGi/6h3wlNi9s2ddBl990x35bpvjT7nI4k=" -> null
+      - content_base64sha512 = "60vDVt2eIoWB7r3HIFGnRyNIYIJqvmX+t4VARdZP5jOkp3y3gObdng5MPDYc/VrvtSho/1UhQjA6+YAHlxPcHw==" -> null
+      - content_md5          = "b196f006841637d229aa00295dd248f7" -> null
+      - content_sha1         = "09ec1e02ff75818a1a4df2c723e6a03588c86477" -> null
+      - content_sha256       = "1e253a76288c9921a2ffa877c25362f6cd9d74197df74c77e5ba6f8d3ee72389" -> null
+      - content_sha512       = "eb4bc356dd9e228581eebdc72051a747234860826abe65feb7854045d64fe633a4a77cb780e6dd9e0e4c3c361cfd5aefb52868ff552142303af980079713dc1f" -> null
+      - directory_permission = "0777" -> null
+      - file_permission      = "0777" -> null
+      - filename             = "./out/config.json" -> null
+      - id                   = "09ec1e02ff75818a1a4df2c723e6a03588c86477" -> null
+    }
+
+  # local_file.notes["a"] will be destroyed
+  - resource "local_file" "notes" {
+      - content              = "alpha" -> null
+      - content_base64sha256 = "jtP2rWhblZ6tcCJRjhr3bNgW+OjsfM3aHtQBjo8iI/g=" -> null
+      - content_base64sha512 = "ujzlhmfKmxKzwM3MTaV/mWKuynBlxDp9nAJzMv258LvPaQBChogP49jz/Y8D3f/XSF/ZTJ06OGGOoQaR2Nan+g==" -> null
+      - content_md5          = "2c1743a391305fbf367df8e4f069f9f9" -> null
+      - content_sha1         = "be76331b95dfc399cd776d2fc68021e0db03cc4f" -> null
+      - content_sha256       = "8ed3f6ad685b959ead7022518e1af76cd816f8e8ec7ccdda1ed4018e8f2223f8" -> null
+      - content_sha512       = "ba3ce58667ca9b12b3c0cdcc4da57f9962aeca7065c43a7d9c027332fdb9f0bbcf69004286880fe3d8f3fd8f03ddffd7485fd94c9d3a38618ea10691d8d6a7fa" -> null
+      - directory_permission = "0777" -> null
+      - file_permission      = "0777" -> null
+      - filename             = "./out/a.txt" -> null
+      - id                   = "be76331b95dfc399cd776d2fc68021e0db03cc4f" -> null
+    }
+
+  # local_file.stamp will be destroyed
+  - resource "local_file" "stamp" {
+      - content              = "2026-10-21T10:38:05Z" -> null
+      - content_base64sha256 = "ohB+BRX4Nu8HHlgslakZ6j+lbsLzUDZS21o8u6Jy1Hc=" -> null
+      - content_base64sha512 = "9jJ5GHNJYkgOTdmpXbYojlvqoeVCAzYegNf5xj5gWq+6K9lw8w9KT05e4+YhyTVo/fmmTWCcuOWxUUBHMeVBlg==" -> null
+      - content_md5          = "959a68f28706c1b0a2f17a3812397a75" -> null
+      - content_sha1         = "7dbf6981d6be0d2131df5290e7817e6fd9c07b5a" -> null
+      - content_sha256       = "a2107e0515f836ef071e582c95a919ea3fa56ec2f3503652db5a3cbba272d477" -> null
+      - content_sha512       = "f6327918734962480e4dd9a95db6288e5beaa1e54203361e80d7f9c63e605aafba2bd970f30f4a4f4e5ee3e621c93568fdf9a64d609cb8e5b151404731e54196" -> null
+      - directory_permission = "0777" -> null
+      - file_permission      = "0777" -> null
+      - filename             = "./out/stamp.txt" -> null
+      - id                   = "7dbf6981d6be0d2131df5290e7817e6fd9c07b5a" -> null
+    }
+
+  # local_sensitive_file.secret will be destroyed
+  - resource "local_sensitive_file" "secret" {
+      - content              = (sensitive value) -> null
+      - content_base64sha256 = "/XrqunDNGFcYfdPq8uI5pq6UTlziOfgQuRHbhdZ4KtE=" -> null
+      - content_base64sha512 = "Rq88g+RG7BbcF3eKinDhM3biNpCwyn0nFCQLpmEoKXbbuWWgDkf2XSl9ONimcBjJfqlL7h9E/1iqYnM6+pGXDg==" -> null
+      - content_md5          = "3136d79b819ae7bf336427f42abd7a0b" -> null
+      - content_sha1         = "ea0df7e17694cf82a3e8dd2bc3b6a7222ead8c5e" -> null
+      - content_sha256       = "fd7aeaba70cd1857187dd3eaf2e239a6ae944e5ce239f810b911db85d6782ad1" -> null
+      - content_sha512       = "46af3c83e446ec16dc17778a8a70e13376e23690b0ca7d2714240ba661282976dbb965a00e47f65d297d38d8a67018c97ea94bee1f44ff58aa62733afa91970e" -> null
+      - directory_permission = "0700" -> null
+      - file_permission      = "0700" -> null
+      - filename             = "./out/secret.txt" -> null
+      - id                   = "ea0df7e17694cf82a3e8dd2bc3b6a7222ead8c5e" -> null
+    }
+
+  # null_resource.cbd will be destroyed
+  - resource "null_resource" "cbd" {
+      - id       = "5114692227584915097" -> null
+      - triggers = {
+          - "version" = "2"
+        } -> null
+    }
+
+  # null_resource.hook will be destroyed
+  - resource "null_resource" "hook" {
+      - id       = "6688740702544849024" -> null
+      - triggers = {
+          - "version" = "2"
+        } -> null
+    }
+
+  # random_id.imported will be destroyed
+  - resource "random_id" "imported" {
+      - b64_std     = "p+9hUg==" -> null
+      - b64_url     = "p-9hUg" -> null
+      - byte_length = 4 -> null
+      - dec         = "2817483090" -> null
+      - hex         = "a7ef6152" -> null
+      - id          = "p-9hUg" -> null
+    }
+
+  # random_password.db will be destroyed
+  - resource "random_password" "db" {
+      - bcrypt_hash = (sensitive value) -> null
+      - id          = "none" -> null
+      - length      = 16 -> null
+      - lower       = true -> null
+      - min_lower   = 0 -> null
+      - min_numeric = 0 -> null
+      - min_special = 0 -> null
+      - min_upper   = 0 -> null
+      - number      = true -> null
+      - numeric     = true -> null
+      - result      = (sensitive value) -> null
+      - special     = false -> null
+      - upper       = true -> null
+    }
+
+  # random_pet.renamed will be destroyed
+  - resource "random_pet" "renamed" {
+      - id        = "skunk" -> null
+      - length    = 1 -> null
+      - separator = "-" -> null
+    }
+
+  # random_pet.server will be destroyed
+  - resource "random_pet" "server" {
+      - id        = "open-reptile" -> null
+      - length    = 2 -> null
+      - separator = "-" -> null
+    }
+
+  # terraform_data.settings will be destroyed
+  - resource "terraform_data" "settings" {
+      - id     = "83bc6265-ef58-b257-0e3e-ca94da9f165a" -> null
+      - input  = {
+          - env      = "production"
+          - features = [
+              - "a",
+              - "b",
+              - "c",
+            ]
+          - replicas = 3
+        } -> null
+      - output = {
+          - env      = "production"
+          - features = [
+              - "a",
+              - "b",
+              - "c",
+            ]
+          - replicas = 3
+        } -> null
+    }
+
+  # time_static.created will be destroyed
+  - resource "time_static" "created" {
+      - day     = 21 -> null
+      - hour    = 10 -> null
+      - id      = "2026-10-21T10:34:01Z" -> null
+      - minute  = 34 -> null
+      - month   = 10 -> null
+      - rfc3339 = "2026-10-21T10:34:01Z" -> null
+      - second  = 1 -> null
+      - unix    = 1792578841 -> null
+      - year    = 2026 -> null
+    }
+
+  # time_static.rotated will be destroyed
+  - resource "time_static" "rotated" {
+      - day     = 21 -> null
+      - hour    = 10 -> null
+      - id      = "2026-10-21T10:38:05Z" -> null
+      - minute  = 38 -> null
+      - month   = 10 -> null
+      - rfc3339 = "2026-10-21T10:38:05Z" -> null
+      - second  = 5 -> null
+      - unix    = 1792579085 -> null
+      - year    = 2026 -> null
+    }
+
+  # module.child[0].null_resource.worker[0] will be destroyed
+  - resource "null_resource" "worker" {
+      - id       = "751504241017021201" -> null
+      - triggers = {
+          - "idx" = "0"
+        } -> null
+    }
+
+  # module.child[0].null_resource.worker[1] will be destroyed
+  - resource "null_resource" "worker" {
+      - id       = "7768790734389368897" -> null
+      - triggers = {
+          - "idx" = "0"
+        } -> null
+    }
+
+  # module.child[0].random_integer.n will be destroyed
+  - resource "random_integer" "n" {
+      - id     = "53" -> null
+      - max    = 100 -> null
+      - min    = 1 -> null
+      - result = 53 -> null
+    }
+
+  # module.new_name.null_resource.worker[0] will be destroyed
+  - resource "null_resource" "worker" {
+      - id       = "8190685683839942929" -> null
+      - triggers = {
+          - "idx" = "9"
+        } -> null
+    }
+
+  # module.new_name.null_resource.worker[1] will be destroyed
+  - resource "null_resource" "worker" {
+      - id       = "6174136101949973153" -> null
+      - triggers = {
+          - "idx" = "9"
+        } -> null
+    }
+
+  # module.new_name.random_integer.n will be destroyed
+  - resource "random_integer" "n" {
+      - id     = "36" -> null
+      - max    = 100 -> null
+      - min    = 1 -> null
+      - result = 36 -> null
+    }
+
+Plan: 0 to add, 0 to change, 19 to destroy.
+
+Changes to Outputs:
+  - config_path = "./out/config.json" -> null
+  - password    = (sensitive value) -> null
+  - replicas    = 3 -> null
+  - rotated_at  = "2026-10-21T10:38:05Z" -> null
+  - server      = "open-reptile" -> null

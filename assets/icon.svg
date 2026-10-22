@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#143b3f"/>
+      <stop offset="1" stop-color="#0b2225"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="52" fill="url(#bg)"/>
+  <!-- three planned changes, read at a glance: add, change, destroy -->
+  <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- + create -->
+    <path d="M52 68h30M67 53v30" stroke="#5ad19a" stroke-width="12"/>
+    <rect x="108" y="58" width="96" height="20" rx="10" fill="#dbe7e5"/>
+    <!-- ~ update -->
+    <path d="M50 128c7-13 18-13 25 0s18 13 25 0" stroke="#f2b84b" stroke-width="12"/>
+    <rect x="108" y="118" width="72" height="20" rx="10" fill="#dbe7e5"/>
+    <!-- - destroy: the loud one -->
+    <path d="M52 188h30" stroke="#ff6b5b" stroke-width="12"/>
+    <rect x="108" y="178" width="60" height="20" rx="10" fill="#ff6b5b"/>
+    <rect x="180" y="178" width="24" height="20" rx="10" fill="#ff6b5b" opacity="0.55"/>
+  </g>
+</svg>

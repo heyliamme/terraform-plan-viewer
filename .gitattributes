@@ -1,0 +1,3 @@
+test/fixtures/** -text
+samples/plans/** -text
+*.tfplan binary

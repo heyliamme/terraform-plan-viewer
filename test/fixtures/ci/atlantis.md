@@ -1,0 +1,258 @@
+Ran Plan for dir: `infra/prod` workspace: `default`
+
+<details><summary>Show Output</summary>
+
+```diff
+OpenTofu used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+  ~ update in-place (current -> planned)
+  - destroy
+-/+ destroy and then create replacement
++/- create replacement and then destroy
+ <= read (data resources)
+  . forget
+
+OpenTofu will perform the following actions:
+
+  # data.local_file.cfg will be read during apply
+  # (config will be reloaded to verify a check block)
+ <= data "local_file" "cfg" {
+      + content              = jsonencode(
+            {
+              + created = "2026-10-21T10:34:01Z"
+              + env     = "staging"
+              + server  = "open-reptile"
+              + tags    = {
+                  + team = "platform"
+                  + tier = "web"
+                }
+            }
+        )
+      + content_base64       = "eyJjcmVhdGVkIjoiMjAyNi0xMC0yMVQxMDozNDowMVoiLCJlbnYiOiJzdGFnaW5nIiwic2VydmVyIjoib3Blbi1yZXB0aWxlIiwidGFncyI6eyJ0ZWFtIjoicGxhdGZvcm0iLCJ0aWVyIjoid2ViIn19"
+      + content_base64sha256 = "wyOV9jyd7q1VCMrYecFEfaHk5SqEvKYXs2nAHCqqyic="
+      + content_base64sha512 = "pHwm8F3Ndmh9y6SiPREXF9Tnx7qVMdinHdMfwpb7Tz1m3spL/NC2f9GqhbfWfhXtLtlMsuN3nfoM9YjCaS7pTA=="
+      + content_md5          = "595f91b8125581571fc635027b8a7130"
+      + content_sha1         = "b7ce96924440591b57f51a503aa48c4faa2466ca"
+      + content_sha256       = "c32395f63c9deead5508cad879c1447da1e4e52a84bca617b369c01c2aaaca27"
+      + content_sha512       = "a47c26f05dcd76687dcba4a23d111717d4e7c7ba9531d8a71dd31fc296fb4f3d66deca4bfcd0b67fd1aa85b7d67e15ed2ed94cb2e3779dfa0cf588c2692ee94c"
+      + filename             = "./out/config.json"
+      + id                   = "b7ce96924440591b57f51a503aa48c4faa2466ca"
+    }
+
+  # data.local_file.stamp_read will be read during apply
+  # (depends on a resource or a module with changes pending)
+ <= data "local_file" "stamp_read" {
+      + content              = (known after apply)
+      + content_base64       = (known after apply)
+      + content_base64sha256 = (known after apply)
+      + content_base64sha512 = (known after apply)
+      + content_md5          = (known after apply)
+      + content_sha1         = (known after apply)
+      + content_sha256       = (known after apply)
+      + content_sha512       = (known after apply)
+      + filename             = "./out/stamp.txt"
+      + id                   = (known after apply)
+    }
+
+  # local_file.config must be replaced
+-/+ resource "local_file" "config" {
+      ~ content              = jsonencode(
+          ~ {
+              ~ env     = "staging" -> "production"
+              ~ tags    = {
+                    team = "platform"
+                  ~ tier = "web" -> "api"
+                }
+                # (2 unchanged attributes hidden)
+            } # forces replacement
+        )
+      ~ content_base64sha256 = "wyOV9jyd7q1VCMrYecFEfaHk5SqEvKYXs2nAHCqqyic=" -> (known after apply)
+      ~ content_base64sha512 = "pHwm8F3Ndmh9y6SiPREXF9Tnx7qVMdinHdMfwpb7Tz1m3spL/NC2f9GqhbfWfhXtLtlMsuN3nfoM9YjCaS7pTA==" -> (known after apply)
+      ~ content_md5          = "595f91b8125581571fc635027b8a7130" -> (known after apply)
+      ~ content_sha1         = "b7ce96924440591b57f51a503aa48c4faa2466ca" -> (known after apply)
+      ~ content_sha256       = "c32395f63c9deead5508cad879c1447da1e4e52a84bca617b369c01c2aaaca27" -> (known after apply)
+      ~ content_sha512       = "a47c26f05dcd76687dcba4a23d111717d4e7c7ba9531d8a71dd31fc296fb4f3d66deca4bfcd0b67fd1aa85b7d67e15ed2ed94cb2e3779dfa0cf588c2692ee94c" -> (known after apply)
+      ~ id                   = "b7ce96924440591b57f51a503aa48c4faa2466ca" -> (known after apply)
+        # (3 unchanged attributes hidden)
+    }
+
+  # local_file.notes["a"] will be created
+  + resource "local_file" "notes" {
+      + content              = "alpha"
+      + content_base64sha256 = (known after apply)
+      + content_base64sha512 = (known after apply)
+      + content_md5          = (known after apply)
+      + content_sha1         = (known after apply)
+      + content_sha256       = (known after apply)
+      + content_sha512       = (known after apply)
+      + directory_permission = "0777"
+      + file_permission      = "0777"
+      + filename             = "./out/a.txt"
+      + id                   = (known after apply)
+    }
+
+  # local_file.notes["b"] will be destroyed
+  # (because key ["b"] is not in for_each map)
+  - resource "local_file" "notes" {
+      - content              = "beta" -> null
+      - content_base64sha256 = "9E5k5185SOn3P436lHIcTOjLtPJlxHkMcCstQc+/J1M=" -> null
+      - content_base64sha512 = "Vgxy3nLApSItkoI39rEFKW2gWYU1NLjQH8I1J8HV2KS4PVsd0/IhBkK9BxzFAFmNTr0pOXPZ9K64rnM2rzqVnQ==" -> null
+      - content_md5          = "987bcab01b929eb2c07877b224215c92" -> null
+      - content_sha1         = "a295e0bdde1938d1fbfd343e5a3e569e868e1465" -> null
+      - content_sha256       = "f44e64e75f3948e9f73f8dfa94721c4ce8cbb4f265c4790c702b2d41cfbf2753" -> null
+      - content_sha512       = "560c72de72c0a5222d928237f6b105296da059853534b8d01fc23527c1d5d8a4b83d5b1dd3f2210642bd071cc500598d4ebd293973d9f4aeb8ae7336af3a959d" -> null
+      - directory_permission = "0777" -> null
+      - file_permission      = "0777" -> null
+      - filename             = "./out/b.txt" -> null
+      - id                   = "a295e0bdde1938d1fbfd343e5a3e569e868e1465" -> null
+    }
+
+  # local_file.stamp will be created
+  + resource "local_file" "stamp" {
+      + content              = (known after apply)
+      + content_base64sha256 = (known after apply)
+      + content_base64sha512 = (known after apply)
+      + content_md5          = (known after apply)
+      + content_sha1         = (known after apply)
+      + content_sha256       = (known after apply)
+      + content_sha512       = (known after apply)
+      + directory_permission = "0777"
+      + file_permission      = "0777"
+      + filename             = "./out/stamp.txt"
+      + id                   = (known after apply)
+    }
+
+  # null_resource.cbd must be replaced
++/- resource "null_resource" "cbd" {
+      ~ id       = "7726511184675787576" -> (known after apply)
+      ~ triggers = { # forces replacement
+          ~ "version" = "1" -> "2"
+        }
+    }
+
+  # null_resource.forgotten will be removed from the OpenTofu state but will not be destroyed
+  . resource "null_resource" "forgotten" {
+    id       = "3427969997504892573"
+    triggers = {
+        "keep" = "me"
+    }
+}
+
+  # null_resource.hook must be replaced
+-/+ resource "null_resource" "hook" {
+      ~ id       = "6872094199069763647" -> (known after apply)
+      ~ triggers = { # forces replacement
+          ~ "version" = "1" -> "2"
+        }
+    }
+
+  # random_id.imported will be imported
+  # (imported from "p-9hUg")
+    resource "random_id" "imported" {
+        b64_std     = "p+9hUg=="
+        b64_url     = "p-9hUg"
+        byte_length = 4
+        dec         = "2817483090"
+        hex         = "a7ef6152"
+        id          = "p-9hUg"
+    }
+
+  # random_pet.legacy has moved to random_pet.renamed
+    resource "random_pet" "renamed" {
+        id        = "skunk"
+        # (2 unchanged attributes hidden)
+    }
+
+  # terraform_data.settings will be updated in-place
+  ~ resource "terraform_data" "settings" {
+        id     = "83bc6265-ef58-b257-0e3e-ca94da9f165a"
+      ~ input  = {
+          ~ env      = "staging" -> "production"
+          ~ features = [
+                # (1 unchanged element hidden)
+                "b",
+              + "c",
+            ]
+          ~ replicas = 2 -> 3
+        }
+      ~ output = {
+          - env      = "staging"
+          - features = [
+              - "a",
+              - "b",
+            ]
+          - replicas = 2
+        } -> (known after apply)
+    }
+
+  # time_static.rotated will be created
+  + resource "time_static" "rotated" {
+      + day     = (known after apply)
+      + hour    = (known after apply)
+      + id      = (known after apply)
+      + minute  = (known after apply)
+      + month   = (known after apply)
+      + rfc3339 = (known after apply)
+      + second  = (known after apply)
+      + unix    = (known after apply)
+      + year    = (known after apply)
+    }
+
+  # module.child[1].null_resource.worker[0] will be destroyed
+  # (because module.child[1] is not in configuration)
+  - resource "null_resource" "worker" {
+      - id       = "7616892481342588323" -> null
+      - triggers = {
+          - "idx" = "1"
+        } -> null
+    }
+
+  # module.child[1].null_resource.worker[1] will be destroyed
+  # (because module.child[1] is not in configuration)
+  - resource "null_resource" "worker" {
+      - id       = "5269141876814871689" -> null
+      - triggers = {
+          - "idx" = "1"
+        } -> null
+    }
+
+  # module.child[1].random_integer.n will be destroyed
+  # (because module.child[1] is not in configuration)
+  - resource "random_integer" "n" {
+      - id     = "60" -> null
+      - max    = 100 -> null
+      - min    = 1 -> null
+      - result = 60 -> null
+    }
+
+  # module.old_name.null_resource.worker[0] has moved to module.new_name.null_resource.worker[0]
+    resource "null_resource" "worker" {
+        id       = "8190685683839942929"
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.old_name.null_resource.worker[1] has moved to module.new_name.null_resource.worker[1]
+    resource "null_resource" "worker" {
+        id       = "6174136101949973153"
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.old_name.random_integer.n has moved to module.new_name.random_integer.n
+    resource "random_integer" "n" {
+        id     = "36"
+        # (3 unchanged attributes hidden)
+    }
+
+Plan: 1 to import, 6 to add, 1 to change, 7 to destroy, 1 to forget.
+
+Changes to Outputs:
+  + replicas    = 3
+  + rotated_at  = (known after apply)
+  - to_remove   = "bye" -> null
+```
+
+* :arrow_forward: To **apply** this plan, comment:
+    * `atlantis apply -d infra/prod`
+</details>
+Plan: 6 to add, 1 to change, 7 to destroy.

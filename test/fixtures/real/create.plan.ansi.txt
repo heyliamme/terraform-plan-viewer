@@ -1,0 +1,228 @@
+
+OpenTofu used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+
+OpenTofu will perform the following actions:
+
+[1m  # local_file.config[0m will be created
+[0m  [32m+[0m[0m resource "local_file" "config" {
+      [32m+[0m[0m content              = (known after apply)
+      [32m+[0m[0m content_base64sha256 = (known after apply)
+      [32m+[0m[0m content_base64sha512 = (known after apply)
+      [32m+[0m[0m content_md5          = (known after apply)
+      [32m+[0m[0m content_sha1         = (known after apply)
+      [32m+[0m[0m content_sha256       = (known after apply)
+      [32m+[0m[0m content_sha512       = (known after apply)
+      [32m+[0m[0m directory_permission = "0777"
+      [32m+[0m[0m file_permission      = "0777"
+      [32m+[0m[0m filename             = "./out/config.json"
+      [32m+[0m[0m id                   = (known after apply)
+    }
+
+[1m  # local_file.notes["a"][0m will be created
+[0m  [32m+[0m[0m resource "local_file" "notes" {
+      [32m+[0m[0m content              = "alpha"
+      [32m+[0m[0m content_base64sha256 = (known after apply)
+      [32m+[0m[0m content_base64sha512 = (known after apply)
+      [32m+[0m[0m content_md5          = (known after apply)
+      [32m+[0m[0m content_sha1         = (known after apply)
+      [32m+[0m[0m content_sha256       = (known after apply)
+      [32m+[0m[0m content_sha512       = (known after apply)
+      [32m+[0m[0m directory_permission = "0777"
+      [32m+[0m[0m file_permission      = "0777"
+      [32m+[0m[0m filename             = "./out/a.txt"
+      [32m+[0m[0m id                   = (known after apply)
+    }
+
+[1m  # local_file.notes["b"][0m will be created
+[0m  [32m+[0m[0m resource "local_file" "notes" {
+      [32m+[0m[0m content              = "beta"
+      [32m+[0m[0m content_base64sha256 = (known after apply)
+      [32m+[0m[0m content_base64sha512 = (known after apply)
+      [32m+[0m[0m content_md5          = (known after apply)
+      [32m+[0m[0m content_sha1         = (known after apply)
+      [32m+[0m[0m content_sha256       = (known after apply)
+      [32m+[0m[0m content_sha512       = (known after apply)
+      [32m+[0m[0m directory_permission = "0777"
+      [32m+[0m[0m file_permission      = "0777"
+      [32m+[0m[0m filename             = "./out/b.txt"
+      [32m+[0m[0m id                   = (known after apply)
+    }
+
+[1m  # local_sensitive_file.secret[0m will be created
+[0m  [32m+[0m[0m resource "local_sensitive_file" "secret" {
+      [32m+[0m[0m content              = (sensitive value)
+      [32m+[0m[0m content_base64sha256 = (known after apply)
+      [32m+[0m[0m content_base64sha512 = (known after apply)
+      [32m+[0m[0m content_md5          = (known after apply)
+      [32m+[0m[0m content_sha1         = (known after apply)
+      [32m+[0m[0m content_sha256       = (known after apply)
+      [32m+[0m[0m content_sha512       = (known after apply)
+      [32m+[0m[0m directory_permission = "0700"
+      [32m+[0m[0m file_permission      = "0700"
+      [32m+[0m[0m filename             = "./out/secret.txt"
+      [32m+[0m[0m id                   = (known after apply)
+    }
+
+[1m  # null_resource.cbd[0m will be created
+[0m  [32m+[0m[0m resource "null_resource" "cbd" {
+      [32m+[0m[0m id       = (known after apply)
+      [32m+[0m[0m triggers = {
+          [32m+[0m[0m "version" = "1"
+        }
+    }
+
+[1m  # null_resource.forgotten[0m will be created
+[0m  [32m+[0m[0m resource "null_resource" "forgotten" {
+      [32m+[0m[0m id       = (known after apply)
+      [32m+[0m[0m triggers = {
+          [32m+[0m[0m "keep" = "me"
+        }
+    }
+
+[1m  # null_resource.hook[0m will be created
+[0m  [32m+[0m[0m resource "null_resource" "hook" {
+      [32m+[0m[0m id       = (known after apply)
+      [32m+[0m[0m triggers = {
+          [32m+[0m[0m "version" = "1"
+        }
+    }
+
+[1m  # random_password.db[0m will be created
+[0m  [32m+[0m[0m resource "random_password" "db" {
+      [32m+[0m[0m bcrypt_hash = (sensitive value)
+      [32m+[0m[0m id          = (known after apply)
+      [32m+[0m[0m length      = 16
+      [32m+[0m[0m lower       = true
+      [32m+[0m[0m min_lower   = 0
+      [32m+[0m[0m min_numeric = 0
+      [32m+[0m[0m min_special = 0
+      [32m+[0m[0m min_upper   = 0
+      [32m+[0m[0m number      = true
+      [32m+[0m[0m numeric     = true
+      [32m+[0m[0m result      = (sensitive value)
+      [32m+[0m[0m special     = false
+      [32m+[0m[0m upper       = true
+    }
+
+[1m  # random_pet.legacy[0m will be created
+[0m  [32m+[0m[0m resource "random_pet" "legacy" {
+      [32m+[0m[0m id        = (known after apply)
+      [32m+[0m[0m length    = 1
+      [32m+[0m[0m separator = "-"
+    }
+
+[1m  # random_pet.server[0m will be created
+[0m  [32m+[0m[0m resource "random_pet" "server" {
+      [32m+[0m[0m id        = (known after apply)
+      [32m+[0m[0m length    = 2
+      [32m+[0m[0m separator = "-"
+    }
+
+[1m  # terraform_data.settings[0m will be created
+[0m  [32m+[0m[0m resource "terraform_data" "settings" {
+      [32m+[0m[0m id     = (known after apply)
+      [32m+[0m[0m input  = {
+          [32m+[0m[0m env      = "staging"
+          [32m+[0m[0m features = [
+              [32m+[0m[0m "a",
+              [32m+[0m[0m "b",
+            ]
+          [32m+[0m[0m replicas = 2
+        }
+      [32m+[0m[0m output = (known after apply)
+    }
+
+[1m  # time_static.created[0m will be created
+[0m  [32m+[0m[0m resource "time_static" "created" {
+      [32m+[0m[0m day     = (known after apply)
+      [32m+[0m[0m hour    = (known after apply)
+      [32m+[0m[0m id      = (known after apply)
+      [32m+[0m[0m minute  = (known after apply)
+      [32m+[0m[0m month   = (known after apply)
+      [32m+[0m[0m rfc3339 = (known after apply)
+      [32m+[0m[0m second  = (known after apply)
+      [32m+[0m[0m unix    = (known after apply)
+      [32m+[0m[0m year    = (known after apply)
+    }
+
+[1m  # module.child[0].null_resource.worker[0][0m will be created
+[0m  [32m+[0m[0m resource "null_resource" "worker" {
+      [32m+[0m[0m id       = (known after apply)
+      [32m+[0m[0m triggers = {
+          [32m+[0m[0m "idx" = "0"
+        }
+    }
+
+[1m  # module.child[0].null_resource.worker[1][0m will be created
+[0m  [32m+[0m[0m resource "null_resource" "worker" {
+      [32m+[0m[0m id       = (known after apply)
+      [32m+[0m[0m triggers = {
+          [32m+[0m[0m "idx" = "0"
+        }
+    }
+
+[1m  # module.child[0].random_integer.n[0m will be created
+[0m  [32m+[0m[0m resource "random_integer" "n" {
+      [32m+[0m[0m id     = (known after apply)
+      [32m+[0m[0m max    = 100
+      [32m+[0m[0m min    = 1
+      [32m+[0m[0m result = (known after apply)
+    }
+
+[1m  # module.child[1].null_resource.worker[0][0m will be created
+[0m  [32m+[0m[0m resource "null_resource" "worker" {
+      [32m+[0m[0m id       = (known after apply)
+      [32m+[0m[0m triggers = {
+          [32m+[0m[0m "idx" = "1"
+        }
+    }
+
+[1m  # module.child[1].null_resource.worker[1][0m will be created
+[0m  [32m+[0m[0m resource "null_resource" "worker" {
+      [32m+[0m[0m id       = (known after apply)
+      [32m+[0m[0m triggers = {
+          [32m+[0m[0m "idx" = "1"
+        }
+    }
+
+[1m  # module.child[1].random_integer.n[0m will be created
+[0m  [32m+[0m[0m resource "random_integer" "n" {
+      [32m+[0m[0m id     = (known after apply)
+      [32m+[0m[0m max    = 100
+      [32m+[0m[0m min    = 1
+      [32m+[0m[0m result = (known after apply)
+    }
+
+[1m  # module.old_name.null_resource.worker[0][0m will be created
+[0m  [32m+[0m[0m resource "null_resource" "worker" {
+      [32m+[0m[0m id       = (known after apply)
+      [32m+[0m[0m triggers = {
+          [32m+[0m[0m "idx" = "9"
+        }
+    }
+
+[1m  # module.old_name.null_resource.worker[1][0m will be created
+[0m  [32m+[0m[0m resource "null_resource" "worker" {
+      [32m+[0m[0m id       = (known after apply)
+      [32m+[0m[0m triggers = {
+          [32m+[0m[0m "idx" = "9"
+        }
+    }
+
+[1m  # module.old_name.random_integer.n[0m will be created
+[0m  [32m+[0m[0m resource "random_integer" "n" {
+      [32m+[0m[0m id     = (known after apply)
+      [32m+[0m[0m max    = 100
+      [32m+[0m[0m min    = 1
+      [32m+[0m[0m result = (known after apply)
+    }
+
+[1mPlan:[0m 21 to add, 0 to change, 0 to destroy.
+[0m
+Changes to Outputs:
+  [32m+[0m[0m config_path = "./out/config.json"
+  [32m+[0m[0m password    = (sensitive value)
+  [32m+[0m[0m server      = (known after apply)
+  [32m+[0m[0m to_remove   = "bye"

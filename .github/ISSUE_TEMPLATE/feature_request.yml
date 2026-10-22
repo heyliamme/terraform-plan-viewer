@@ -1,0 +1,15 @@
+name: Feature request
+description: Something the viewer should show or do
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to see or do?
+      description: The situation and what gets in the way today. A small plan that shows it helps.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would help?

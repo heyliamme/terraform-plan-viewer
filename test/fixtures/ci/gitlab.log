@@ -1,0 +1,308 @@
+[0KRunning with gitlab-runner 17.5.0 (abc123)[0;m
+section_start:1761043084:prepare_executor[0K[0K[36;1mPreparing the "docker" executor[0;m[0;m
+Using Docker executor with image hashicorp/terraform:1.9 ...
+section_end:1761043086:prepare_executor[0K
+section_start:1761043086:step_script[0K[0K[36;1mExecuting "step_script" stage of the job script[0;m[0;m
+[32;1m$ terraform init -input=false[0;m
+Terraform has been successfully initialized!
+[32;1m$ terraform plan -out=plan.tfplan[0;m
+[0m[1mdata.local_file.cfg: Reading...[0m[0m
+[0m[1mlocal_file.notes["b"]: Refreshing state... [id=a295e0bdde1938d1fbfd343e5a3e569e868e1465][0m
+[0m[1mlocal_file.notes["a"]: Refreshing state... [id=be76331b95dfc399cd776d2fc68021e0db03cc4f][0m
+[0m[1mdata.local_file.cfg: Read complete after 0s [id=b7ce96924440591b57f51a503aa48c4faa2466ca][0m
+[0m[1mrandom_id.imported: Preparing import... [id=p-9hUg][0m
+[0m[1mrandom_pet.server: Refreshing state... [id=open-reptile][0m
+[0m[1mrandom_pet.renamed: Refreshing state... [id=skunk][0m
+[0m[1mmodule.new_name.random_integer.n: Refreshing state... [id=36][0m
+[0m[1mmodule.child[1].random_integer.n: Refreshing state... [id=60][0m
+[0m[1mrandom_id.imported: Refreshing state... [id=p-9hUg][0m
+[0m[1mmodule.child[0].random_integer.n: Refreshing state... [id=53][0m
+[0m[1mrandom_password.db: Refreshing state... [id=none][0m
+[0m[1mlocal_sensitive_file.secret: Refreshing state... [id=ea0df7e17694cf82a3e8dd2bc3b6a7222ead8c5e][0m
+[0m[1mnull_resource.forgotten: Refreshing state... [id=3427969997504892573][0m
+[0m[1mnull_resource.hook: Refreshing state... [id=6872094199069763647][0m
+[0m[1mmodule.new_name.null_resource.worker[1]: Refreshing state... [id=6174136101949973153][0m
+[0m[1mmodule.new_name.null_resource.worker[0]: Refreshing state... [id=8190685683839942929][0m
+[0m[1mmodule.child[1].null_resource.worker[1]: Refreshing state... [id=5269141876814871689][0m
+[0m[1mnull_resource.cbd: Refreshing state... [id=7726511184675787576][0m
+[0m[1mmodule.child[0].null_resource.worker[1]: Refreshing state... [id=7768790734389368897][0m
+[0m[1mmodule.child[0].null_resource.worker[0]: Refreshing state... [id=751504241017021201][0m
+[0m[1mmodule.child[1].null_resource.worker[0]: Refreshing state... [id=7616892481342588323][0m
+[0m[1mterraform_data.settings: Refreshing state... [id=83bc6265-ef58-b257-0e3e-ca94da9f165a][0m
+[0m[1mtime_static.created: Refreshing state... [id=2026-10-21T10:34:01Z][0m
+[0m[1mlocal_file.config: Refreshing state... [id=b7ce96924440591b57f51a503aa48c4faa2466ca][0m
+
+OpenTofu used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+  [33m~[0m update in-place (current -> planned)[0m
+  [31m-[0m destroy[0m
+[31m-[0m/[32m+[0m destroy and then create replacement[0m
+[32m+[0m/[31m-[0m create replacement and then destroy[0m
+ [36m<=[0m read (data resources)[0m
+  [31m.[0m forget[0m
+
+OpenTofu will perform the following actions:
+
+[1m  # data.local_file.cfg[0m will be read during apply
+  # (config will be reloaded to verify a check block)
+[0m [36m<=[0m[0m data "local_file" "cfg" {
+      [32m+[0m[0m content              = jsonencode(
+            {
+              [32m+[0m[0m created = "2026-10-21T10:34:01Z"
+              [32m+[0m[0m env     = "staging"
+              [32m+[0m[0m server  = "open-reptile"
+              [32m+[0m[0m tags    = {
+                  [32m+[0m[0m team = "platform"
+                  [32m+[0m[0m tier = "web"
+                }
+            }
+        )
+      [32m+[0m[0m content_base64       = "eyJjcmVhdGVkIjoiMjAyNi0xMC0yMVQxMDozNDowMVoiLCJlbnYiOiJzdGFnaW5nIiwic2VydmVyIjoib3Blbi1yZXB0aWxlIiwidGFncyI6eyJ0ZWFtIjoicGxhdGZvcm0iLCJ0aWVyIjoid2ViIn19"
+      [32m+[0m[0m content_base64sha256 = "wyOV9jyd7q1VCMrYecFEfaHk5SqEvKYXs2nAHCqqyic="
+      [32m+[0m[0m content_base64sha512 = "pHwm8F3Ndmh9y6SiPREXF9Tnx7qVMdinHdMfwpb7Tz1m3spL/NC2f9GqhbfWfhXtLtlMsuN3nfoM9YjCaS7pTA=="
+      [32m+[0m[0m content_md5          = "595f91b8125581571fc635027b8a7130"
+      [32m+[0m[0m content_sha1         = "b7ce96924440591b57f51a503aa48c4faa2466ca"
+      [32m+[0m[0m content_sha256       = "c32395f63c9deead5508cad879c1447da1e4e52a84bca617b369c01c2aaaca27"
+      [32m+[0m[0m content_sha512       = "a47c26f05dcd76687dcba4a23d111717d4e7c7ba9531d8a71dd31fc296fb4f3d66deca4bfcd0b67fd1aa85b7d67e15ed2ed94cb2e3779dfa0cf588c2692ee94c"
+      [32m+[0m[0m filename             = "./out/config.json"
+      [32m+[0m[0m id                   = "b7ce96924440591b57f51a503aa48c4faa2466ca"
+    }
+
+[1m  # data.local_file.stamp_read[0m will be read during apply
+  # (depends on a resource or a module with changes pending)
+[0m [36m<=[0m[0m data "local_file" "stamp_read" {
+      [32m+[0m[0m content              = (known after apply)
+      [32m+[0m[0m content_base64       = (known after apply)
+      [32m+[0m[0m content_base64sha256 = (known after apply)
+      [32m+[0m[0m content_base64sha512 = (known after apply)
+      [32m+[0m[0m content_md5          = (known after apply)
+      [32m+[0m[0m content_sha1         = (known after apply)
+      [32m+[0m[0m content_sha256       = (known after apply)
+      [32m+[0m[0m content_sha512       = (known after apply)
+      [32m+[0m[0m filename             = "./out/stamp.txt"
+      [32m+[0m[0m id                   = (known after apply)
+    }
+
+[1m  # local_file.config[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "local_file" "config" {
+      [33m~[0m[0m content              = jsonencode(
+          [33m~[0m[0m {
+              [33m~[0m[0m env     = "staging" [33m->[0m[0m "production"
+              [33m~[0m[0m tags    = {
+                    team = "platform"
+                  [33m~[0m[0m tier = "web" [33m->[0m[0m "api"
+                }
+                [90m# (2 unchanged attributes hidden)[0m[0m
+            } [31m# forces replacement[0m[0m
+        )
+      [33m~[0m[0m content_base64sha256 = "wyOV9jyd7q1VCMrYecFEfaHk5SqEvKYXs2nAHCqqyic=" -> (known after apply)
+      [33m~[0m[0m content_base64sha512 = "pHwm8F3Ndmh9y6SiPREXF9Tnx7qVMdinHdMfwpb7Tz1m3spL/NC2f9GqhbfWfhXtLtlMsuN3nfoM9YjCaS7pTA==" -> (known after apply)
+      [33m~[0m[0m content_md5          = "595f91b8125581571fc635027b8a7130" -> (known after apply)
+      [33m~[0m[0m content_sha1         = "b7ce96924440591b57f51a503aa48c4faa2466ca" -> (known after apply)
+      [33m~[0m[0m content_sha256       = "c32395f63c9deead5508cad879c1447da1e4e52a84bca617b369c01c2aaaca27" -> (known after apply)
+      [33m~[0m[0m content_sha512       = "a47c26f05dcd76687dcba4a23d111717d4e7c7ba9531d8a71dd31fc296fb4f3d66deca4bfcd0b67fd1aa85b7d67e15ed2ed94cb2e3779dfa0cf588c2692ee94c" -> (known after apply)
+      [33m~[0m[0m id                   = "b7ce96924440591b57f51a503aa48c4faa2466ca" -> (known after apply)
+        [90m# (3 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # local_file.notes["a"][0m will be created
+[0m  [32m+[0m[0m resource "local_file" "notes" {
+      [32m+[0m[0m content              = "alpha"
+      [32m+[0m[0m content_base64sha256 = (known after apply)
+      [32m+[0m[0m content_base64sha512 = (known after apply)
+      [32m+[0m[0m content_md5          = (known after apply)
+      [32m+[0m[0m content_sha1         = (known after apply)
+      [32m+[0m[0m content_sha256       = (known after apply)
+      [32m+[0m[0m content_sha512       = (known after apply)
+      [32m+[0m[0m directory_permission = "0777"
+      [32m+[0m[0m file_permission      = "0777"
+      [32m+[0m[0m filename             = "./out/a.txt"
+      [32m+[0m[0m id                   = (known after apply)
+    }
+
+[1m  # local_file.notes["b"][0m will be [1m[31mdestroyed[0m
+  # (because key ["b"] is not in for_each map)
+[0m  [31m-[0m[0m resource "local_file" "notes" {
+      [31m-[0m[0m content              = "beta" [90m-> null[0m[0m
+      [31m-[0m[0m content_base64sha256 = "9E5k5185SOn3P436lHIcTOjLtPJlxHkMcCstQc+/J1M=" [90m-> null[0m[0m
+      [31m-[0m[0m content_base64sha512 = "Vgxy3nLApSItkoI39rEFKW2gWYU1NLjQH8I1J8HV2KS4PVsd0/IhBkK9BxzFAFmNTr0pOXPZ9K64rnM2rzqVnQ==" [90m-> null[0m[0m
+      [31m-[0m[0m content_md5          = "987bcab01b929eb2c07877b224215c92" [90m-> null[0m[0m
+      [31m-[0m[0m content_sha1         = "a295e0bdde1938d1fbfd343e5a3e569e868e1465" [90m-> null[0m[0m
+      [31m-[0m[0m content_sha256       = "f44e64e75f3948e9f73f8dfa94721c4ce8cbb4f265c4790c702b2d41cfbf2753" [90m-> null[0m[0m
+      [31m-[0m[0m content_sha512       = "560c72de72c0a5222d928237f6b105296da059853534b8d01fc23527c1d5d8a4b83d5b1dd3f2210642bd071cc500598d4ebd293973d9f4aeb8ae7336af3a959d" [90m-> null[0m[0m
+      [31m-[0m[0m directory_permission = "0777" [90m-> null[0m[0m
+      [31m-[0m[0m file_permission      = "0777" [90m-> null[0m[0m
+      [31m-[0m[0m filename             = "./out/b.txt" [90m-> null[0m[0m
+      [31m-[0m[0m id                   = "a295e0bdde1938d1fbfd343e5a3e569e868e1465" [90m-> null[0m[0m
+    }
+
+[1m  # local_file.stamp[0m will be created
+[0m  [32m+[0m[0m resource "local_file" "stamp" {
+      [32m+[0m[0m content              = (known after apply)
+      [32m+[0m[0m content_base64sha256 = (known after apply)
+      [32m+[0m[0m content_base64sha512 = (known after apply)
+      [32m+[0m[0m content_md5          = (known after apply)
+      [32m+[0m[0m content_sha1         = (known after apply)
+      [32m+[0m[0m content_sha256       = (known after apply)
+      [32m+[0m[0m content_sha512       = (known after apply)
+      [32m+[0m[0m directory_permission = "0777"
+      [32m+[0m[0m file_permission      = "0777"
+      [32m+[0m[0m filename             = "./out/stamp.txt"
+      [32m+[0m[0m id                   = (known after apply)
+    }
+
+[1m  # null_resource.cbd[0m must be [1m[31mreplaced[0m
+[0m[32m+[0m/[31m-[0m[0m resource "null_resource" "cbd" {
+      [33m~[0m[0m id       = "7726511184675787576" -> (known after apply)
+      [33m~[0m[0m triggers = { [31m# forces replacement[0m[0m
+          [33m~[0m[0m "version" = "1" [33m->[0m[0m "2"
+        }
+    }
+
+[1m  # null_resource.forgotten[0m will be removed from the OpenTofu state [1m[31mbut will not be destroyed[0m
+[0m  [31m.[0m[0m resource "null_resource" "forgotten" {
+    id       = "3427969997504892573"
+    triggers = {
+        "keep" = "me"
+    }
+}
+
+[1m  # null_resource.hook[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "null_resource" "hook" {
+      [33m~[0m[0m id       = "6872094199069763647" -> (known after apply)
+      [33m~[0m[0m triggers = { [31m# forces replacement[0m[0m
+          [33m~[0m[0m "version" = "1" [33m->[0m[0m "2"
+        }
+    }
+
+[1m  # random_id.imported[0m will be imported
+  # [0m(imported from "p-9hUg")
+[0m    resource "random_id" "imported" {
+        b64_std     = "p+9hUg=="
+        b64_url     = "p-9hUg"
+        byte_length = 4
+        dec         = "2817483090"
+        hex         = "a7ef6152"
+        id          = "p-9hUg"
+    }
+
+[1m  # random_pet.legacy[0m has moved to [1mrandom_pet.renamed[0m
+[0m    resource "random_pet" "renamed" {
+        id        = "skunk"
+        [90m# (2 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # terraform_data.settings[0m will be updated in-place
+[0m  [33m~[0m[0m resource "terraform_data" "settings" {
+        id     = "83bc6265-ef58-b257-0e3e-ca94da9f165a"
+      [33m~[0m[0m input  = {
+          [33m~[0m[0m env      = "staging" [33m->[0m[0m "production"
+          [33m~[0m[0m features = [
+                [90m# (1 unchanged element hidden)[0m[0m
+                "b",
+              [32m+[0m[0m "c",
+            ]
+          [33m~[0m[0m replicas = 2 [33m->[0m[0m 3
+        }
+      [33m~[0m[0m output = {
+          [31m-[0m[0m env      = "staging"
+          [31m-[0m[0m features = [
+              [31m-[0m[0m "a",
+              [31m-[0m[0m "b",
+            ]
+          [31m-[0m[0m replicas = 2
+        } -> (known after apply)
+    }
+
+[1m  # time_static.rotated[0m will be created
+[0m  [32m+[0m[0m resource "time_static" "rotated" {
+      [32m+[0m[0m day     = (known after apply)
+      [32m+[0m[0m hour    = (known after apply)
+      [32m+[0m[0m id      = (known after apply)
+      [32m+[0m[0m minute  = (known after apply)
+      [32m+[0m[0m month   = (known after apply)
+      [32m+[0m[0m rfc3339 = (known after apply)
+      [32m+[0m[0m second  = (known after apply)
+      [32m+[0m[0m unix    = (known after apply)
+      [32m+[0m[0m year    = (known after apply)
+    }
+
+[1m  # module.child[1].null_resource.worker[0][0m will be [1m[31mdestroyed[0m
+  # (because module.child[1] is not in configuration)
+[0m  [31m-[0m[0m resource "null_resource" "worker" {
+      [31m-[0m[0m id       = "7616892481342588323" [90m-> null[0m[0m
+      [31m-[0m[0m triggers = {
+          [31m-[0m[0m "idx" = "1"
+        } [90m-> null[0m[0m
+    }
+
+[1m  # module.child[1].null_resource.worker[1][0m will be [1m[31mdestroyed[0m
+  # (because module.child[1] is not in configuration)
+[0m  [31m-[0m[0m resource "null_resource" "worker" {
+      [31m-[0m[0m id       = "5269141876814871689" [90m-> null[0m[0m
+      [31m-[0m[0m triggers = {
+          [31m-[0m[0m "idx" = "1"
+        } [90m-> null[0m[0m
+    }
+
+[1m  # module.child[1].random_integer.n[0m will be [1m[31mdestroyed[0m
+  # (because module.child[1] is not in configuration)
+[0m  [31m-[0m[0m resource "random_integer" "n" {
+      [31m-[0m[0m id     = "60" [90m-> null[0m[0m
+      [31m-[0m[0m max    = 100 [90m-> null[0m[0m
+      [31m-[0m[0m min    = 1 [90m-> null[0m[0m
+      [31m-[0m[0m result = 60 [90m-> null[0m[0m
+    }
+
+[1m  # module.old_name.null_resource.worker[0][0m has moved to [1mmodule.new_name.null_resource.worker[0][0m
+[0m    resource "null_resource" "worker" {
+        id       = "8190685683839942929"
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.old_name.null_resource.worker[1][0m has moved to [1mmodule.new_name.null_resource.worker[1][0m
+[0m    resource "null_resource" "worker" {
+        id       = "6174136101949973153"
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.old_name.random_integer.n[0m has moved to [1mmodule.new_name.random_integer.n[0m
+[0m    resource "random_integer" "n" {
+        id     = "36"
+        [90m# (3 unchanged attributes hidden)[0m[0m
+    }
+
+[1mPlan:[0m 1 to import, 6 to add, 1 to change, 7 to destroy, 1 to forget.
+[0m
+Changes to Outputs:
+  [32m+[0m[0m replicas    = 3
+  [32m+[0m[0m rotated_at  = (known after apply)
+  [31m-[0m[0m to_remove   = "bye" [90m-> null[0m[0m
+[33m╷[0m[0m
+[33m│[0m [0m[1m[33mWarning: [0m[0m[1mResource will be removed from the state[0m
+[33m│[0m [0m
+[33m│[0m [0m[0mAfter this plan is applied, the resource null_resource.forgotten will not
+[33m│[0m [0mbe managed anymore by OpenTofu.
+[33m│[0m [0m
+[33m│[0m [0mIn case you want to manage the resource again, you will have to import it.
+[33m╵[0m[0m
+[33m╷[0m[0m
+[33m│[0m [0m[1m[33mWarning: [0m[0m[1mCheck block assertion failed[0m
+[33m│[0m [0m
+[33m│[0m [0m[0m  on main.tf line 110, in check "env_is_staging":
+[33m│[0m [0m 110:     condition     = [4mvar.env == "staging"[0m[0m
+[33m│[0m [0m    [90m├────────────────[0m
+[33m│[0m [0m[0m    [90m│[0m [1mvar.env[0m is "production"
+[33m│[0m [0m[0m    [90m├────────────────[0m
+[33m│[0m [0m[0m    [90m│[0m [1mDiff: [0m[0m
+[33m│[0m [0m    [90m│[0m [0m    "production" [33m->[0m[0m "staging"
+[33m│[0m [0m
+[33m│[0m [0menv is not staging
+[33m╵[0m[0m
+
+section_end:1761043120:step_script[0K
+section_start:1761043120:upload_artifacts_on_success[0K[0K[36;1mUploading artifacts for successful job[0;m[0;m
+Uploading artifacts...
+section_end:1761043121:upload_artifacts_on_success[0K
+[32;1mJob succeeded[0;m

@@ -1,0 +1,43 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.9.8",
+  "planned_values": { "root_module": { "resources": [] } },
+  "resource_changes": [
+    {
+      "address": "aws_instance.web",
+      "mode": "managed",
+      "type": "aws_instance",
+      "name": "web",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": ["no-op"],
+        "before": { "id": "i-0new", "ami": "ami-222", "instance_type": "t3.small", "tags": { "Name": "web" } },
+        "after": { "id": "i-0new", "ami": "ami-222", "instance_type": "t3.small", "tags": { "Name": "web" } },
+        "after_unknown": {},
+        "before_sensitive": {},
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "aws_instance.web",
+      "mode": "managed",
+      "type": "aws_instance",
+      "name": "web",
+      "deposed": "8e4f2a1c",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": ["delete"],
+        "before": { "id": "i-0old", "ami": "ami-111", "instance_type": "t3.small", "tags": { "Name": "web" } },
+        "after": null,
+        "after_unknown": {},
+        "before_sensitive": {},
+        "after_sensitive": false
+      }
+    }
+  ],
+  "output_changes": {},
+  "prior_state": { "format_version": "1.0", "terraform_version": "1.9.8", "values": { "root_module": { "resources": [] } } },
+  "configuration": { "provider_config": { "aws": { "name": "aws", "full_name": "registry.terraform.io/hashicorp/aws" } }, "root_module": {} },
+  "timestamp": "2026-10-21T09:00:00Z",
+  "errored": false
+}

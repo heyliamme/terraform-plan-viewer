@@ -1,0 +1,123 @@
+random_id.imported: Refreshing state... [id=p-9hUg]
+module.child[0].random_integer.n: Refreshing state... [id=53]
+random_pet.server: Refreshing state... [id=open-reptile]
+random_pet.renamed: Refreshing state... [id=skunk]
+module.new_name.random_integer.n: Refreshing state... [id=36]
+random_password.db: Refreshing state... [id=none]
+data.local_file.cfg: Reading...
+local_file.notes["a"]: Refreshing state... [id=be76331b95dfc399cd776d2fc68021e0db03cc4f]
+local_sensitive_file.secret: Refreshing state... [id=ea0df7e17694cf82a3e8dd2bc3b6a7222ead8c5e]
+data.local_file.cfg: Read complete after 0s [id=09ec1e02ff75818a1a4df2c723e6a03588c86477]
+null_resource.hook: Refreshing state... [id=6688740702544849024]
+null_resource.cbd: Refreshing state... [id=5114692227584915097]
+terraform_data.settings: Refreshing state... [id=83bc6265-ef58-b257-0e3e-ca94da9f165a]
+module.child[0].null_resource.worker[1]: Refreshing state... [id=7768790734389368897]
+module.child[0].null_resource.worker[0]: Refreshing state... [id=751504241017021201]
+module.new_name.null_resource.worker[0]: Refreshing state... [id=8190685683839942929]
+module.new_name.null_resource.worker[1]: Refreshing state... [id=6174136101949973153]
+time_static.created: Refreshing state... [id=2026-10-21T10:34:01Z]
+time_static.rotated: Refreshing state... [id=2026-10-21T10:38:05Z]
+local_file.config: Refreshing state... [id=09ec1e02ff75818a1a4df2c723e6a03588c86477]
+local_file.stamp: Refreshing state... [id=7dbf6981d6be0d2131df5290e7817e6fd9c07b5a]
+data.local_file.stamp_read: Reading...
+data.local_file.stamp_read: Read complete after 0s [id=7dbf6981d6be0d2131df5290e7817e6fd9c07b5a]
+
+OpenTofu used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  ~ update in-place (current -> planned)
+-/+ destroy and then create replacement
+ <= read (data resources)
+
+OpenTofu will perform the following actions:
+
+  # data.local_file.cfg will be read during apply
+  # (config will be reloaded to verify a check block)
+ <= data "local_file" "cfg" {
+      + content              = jsonencode(
+            {
+              + created = "2026-10-21T10:34:01Z"
+              + env     = "production"
+              + server  = "open-reptile"
+              + tags    = {
+                  + team = "platform"
+                  + tier = "api"
+                }
+            }
+        )
+      + content_base64       = "eyJjcmVhdGVkIjoiMjAyNi0xMC0yMVQxMDozNDowMVoiLCJlbnYiOiJwcm9kdWN0aW9uIiwic2VydmVyIjoib3Blbi1yZXB0aWxlIiwidGFncyI6eyJ0ZWFtIjoicGxhdGZvcm0iLCJ0aWVyIjoiYXBpIn19"
+      + content_base64sha256 = "HiU6diiMmSGi/6h3wlNi9s2ddBl990x35bpvjT7nI4k="
+      + content_base64sha512 = "60vDVt2eIoWB7r3HIFGnRyNIYIJqvmX+t4VARdZP5jOkp3y3gObdng5MPDYc/VrvtSho/1UhQjA6+YAHlxPcHw=="
+      + content_md5          = "b196f006841637d229aa00295dd248f7"
+      + content_sha1         = "09ec1e02ff75818a1a4df2c723e6a03588c86477"
+      + content_sha256       = "1e253a76288c9921a2ffa877c25362f6cd9d74197df74c77e5ba6f8d3ee72389"
+      + content_sha512       = "eb4bc356dd9e228581eebdc72051a747234860826abe65feb7854045d64fe633a4a77cb780e6dd9e0e4c3c361cfd5aefb52868ff552142303af980079713dc1f"
+      + filename             = "./out/config.json"
+      + id                   = "09ec1e02ff75818a1a4df2c723e6a03588c86477"
+    }
+
+  # local_file.config must be replaced
+-/+ resource "local_file" "config" {
+      ~ content              = jsonencode(
+          ~ {
+              ~ env     = "production" -> "staging"
+                tags    = {
+                    team = "platform"
+                    tier = "api"
+                }
+                # (2 unchanged attributes hidden)
+            } # forces replacement
+        )
+      ~ content_base64sha256 = "HiU6diiMmSGi/6h3wlNi9s2ddBl990x35bpvjT7nI4k=" -> (known after apply)
+      ~ content_base64sha512 = "60vDVt2eIoWB7r3HIFGnRyNIYIJqvmX+t4VARdZP5jOkp3y3gObdng5MPDYc/VrvtSho/1UhQjA6+YAHlxPcHw==" -> (known after apply)
+      ~ content_md5          = "b196f006841637d229aa00295dd248f7" -> (known after apply)
+      ~ content_sha1         = "09ec1e02ff75818a1a4df2c723e6a03588c86477" -> (known after apply)
+      ~ content_sha256       = "1e253a76288c9921a2ffa877c25362f6cd9d74197df74c77e5ba6f8d3ee72389" -> (known after apply)
+      ~ content_sha512       = "eb4bc356dd9e228581eebdc72051a747234860826abe65feb7854045d64fe633a4a77cb780e6dd9e0e4c3c361cfd5aefb52868ff552142303af980079713dc1f" -> (known after apply)
+      ~ id                   = "09ec1e02ff75818a1a4df2c723e6a03588c86477" -> (known after apply)
+        # (3 unchanged attributes hidden)
+    }
+
+  # local_sensitive_file.secret must be replaced
+-/+ resource "local_sensitive_file" "secret" {
+      ~ content              = (sensitive value) # forces replacement
+      ~ content_base64sha256 = "/XrqunDNGFcYfdPq8uI5pq6UTlziOfgQuRHbhdZ4KtE=" -> (known after apply)
+      ~ content_base64sha512 = "Rq88g+RG7BbcF3eKinDhM3biNpCwyn0nFCQLpmEoKXbbuWWgDkf2XSl9ONimcBjJfqlL7h9E/1iqYnM6+pGXDg==" -> (known after apply)
+      ~ content_md5          = "3136d79b819ae7bf336427f42abd7a0b" -> (known after apply)
+      ~ content_sha1         = "ea0df7e17694cf82a3e8dd2bc3b6a7222ead8c5e" -> (known after apply)
+      ~ content_sha256       = "fd7aeaba70cd1857187dd3eaf2e239a6ae944e5ce239f810b911db85d6782ad1" -> (known after apply)
+      ~ content_sha512       = "46af3c83e446ec16dc17778a8a70e13376e23690b0ca7d2714240ba661282976dbb965a00e47f65d297d38d8a67018c97ea94bee1f44ff58aa62733afa91970e" -> (known after apply)
+      ~ id                   = "ea0df7e17694cf82a3e8dd2bc3b6a7222ead8c5e" -> (known after apply)
+        # (3 unchanged attributes hidden)
+    }
+
+  # random_password.db must be replaced
+-/+ resource "random_password" "db" {
+      ~ bcrypt_hash = (sensitive value)
+      ~ id          = "none" -> (known after apply)
+      ~ length      = 16 -> 20 # forces replacement
+      ~ result      = (sensitive value)
+        # (9 unchanged attributes hidden)
+    }
+
+  # terraform_data.settings will be updated in-place
+  ~ resource "terraform_data" "settings" {
+        id     = "83bc6265-ef58-b257-0e3e-ca94da9f165a"
+      ~ input  = {
+          ~ env      = "production" -> "staging"
+            # (2 unchanged attributes hidden)
+        }
+      ~ output = {
+          - env      = "production"
+          - features = [
+              - "a",
+              - "b",
+              - "c",
+            ]
+          - replicas = 3
+        } -> (known after apply)
+    }
+
+Plan: 3 to add, 1 to change, 3 to destroy.
+
+Changes to Outputs:
+  ~ password    = (sensitive value)
