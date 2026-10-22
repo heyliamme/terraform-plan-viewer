@@ -8,8 +8,9 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { createRequire } from 'module';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
-const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const core = createRequire(import.meta.url)(path.join(root, 'dist/core.js'));
 const [file = 'test/fixtures/real/changes.json'] = process.argv.slice(2);
 const read = (f) => readFileSync(path.resolve(f), 'utf8');

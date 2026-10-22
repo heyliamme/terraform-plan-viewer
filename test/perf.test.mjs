@@ -5,10 +5,11 @@ import { existsSync, readFileSync, statSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { test } from 'node:test';
+import { fileURLToPath } from 'node:url';
 import { core, model } from './helpers.mjs';
 
 const file = path.join(tmpdir(), 'terraform-plan-viewer-perf.json');
-const script = new URL('../scripts/perf-plan.mjs', import.meta.url).pathname;
+const script = fileURLToPath(new URL('../scripts/perf-plan.mjs', import.meta.url));
 
 test('a 20 MB plan with 5,200 resource changes reads in under 2 seconds', () => {
   if (!existsSync(file) || statSync(file).size < 15 * 1024 * 1024) execFileSync(process.execPath, [script, file, '5200', '20'], { stdio: 'ignore' });
